@@ -4,14 +4,12 @@ import pandas as pd
 
 # ---------------------- Folder containing PDFs ----------------------
 # Specify the folder path where PDF files are located
-pdf_folder = r"C:\Users\MSK\Downloads\py\modmed_ehr\PDF"
+pdf_folder = r"C:\Users\MSK\Downloads\py\PDF Extraction\PDF"
 
 # ---------------------- Keywords ----------------------
 # Keywords to search for in lowercase for case-insensitive matching
 keywords = [kw.lower() for kw in [
-    "Hemoglobin A1C",
-    "hba1c",
-    "Hemoglobin"
+    "Medications"
 ]]
 
 # ---------------------- Function to Search Keywords ----------------------
@@ -62,8 +60,7 @@ for pdf_file in os.listdir(pdf_folder):
                     page = pdf.pages[page_num]
 
                     # Only extract text from a specific region using bounding box
-                    # Format: (x0, y0, x1, y1) => (left, top, right, bottom)
-                    bounding_box = (50, 100, 500, 200)
+                    bounding_box = (0, 70, 150, 780)
                     cropped_page = page.within_bbox(bounding_box)
                     if cropped_page:
                         cropped_text = cropped_page.extract_text()
@@ -103,6 +100,9 @@ for pdf_file in os.listdir(pdf_folder):
                 "Status": "Error"
             }])
             df = pd.concat([df, new_row], ignore_index=True)
+
+        # To check if all files are being processed correctly, print each file's status
+        print(f"Processed: {pdf_file}")
 
 # ---------------------- Save Results to Excel ----------------------
 # Export the results DataFrame to an Excel file
