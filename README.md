@@ -1,31 +1,31 @@
-# PDF Extraction and Keyword Search Automation 📄🔍
+# PDF Text Extraction and Visualization 📄🔍
 
-This repo contains Python scripts to automatically extract and process text from PDF documents. It uses `pdfplumber` to extract content and `Pandas` to store and analyze the results. You can search for specific keywords, visualize extracted areas, and save the results.
+This repository contains four Python scripts designed to automate the extraction and visualization of text from PDF documents. Each script serves a different purpose for extracting text from either the entire document or specific sections, with the ability to visualize certain areas.
 
 ## Features 🌟
 
-- **Extract Text from PDFs**: Extracts text from specific regions using bounding boxes.
-- **Keyword Search**: Search for keywords in the extracted text.
-- **Save Results**: Save keyword matches into an Excel file 📊.
-- **Image Visualization**: Visualize the cropped areas with bounding boxes 🖼️.
+- **`whole_extract.py`**: Extracts text from the entire PDF document.
+- **`section_extract.py`**: Extracts text from a specific section of the PDF using a predefined bounding box.
+- **`section_extract_below.py`**: Extracts text from a specific section and also captures the line immediately below the matched keyword.
+- **`draw_bounding_box.py`**: Visualizes and draws a bounding box around a specific section of the PDF for area-based extraction.
 
 ## Files 📂
 
-1. **`pdf_extraction_with_image.py`**:
-   - Extracts text from PDFs and visualizes cropped areas with bounding boxes.
-   - Saves cropped areas as images with bounding boxes drawn.
+1. **`whole_extract.py`**:
+   - Extracts text from the entire PDF.
+   - Useful for extracting full content without focusing on any particular area.
 
-2. **`pdf_keyword_search_to_excel.py`**:
-   - Searches for specific keywords in PDFs.
-   - Saves results into an Excel file.
+2. **`section_extract.py`**:
+   - Extracts text from a specific area of the PDF using a defined bounding box.
+   - Ideal for extracting content from predefined sections like tables or forms.
 
-3. **`pdf_keyword_search_with_next_line.py`**:
-   - Searches for keywords and returns the next line after a match.
-   - Saves results in an Excel file.
+3. **`section_extract_below.py`**:
+   - Similar to `section_extract.py`, but also extracts the line immediately below a keyword match.
+   - Useful when you need the context or additional details related to the keyword.
 
-4. **`pdf_keyword_search_for_custom_keywords.py`**:
-   - Searches for user-defined keywords in PDFs.
-   - Outputs results into an Excel file.
+4. **`draw_bounding_box.py`**:
+   - Draws a bounding box around a specified area in the PDF.
+   - Helps in visualizing the area of interest before extracting text.
 
 ## Installation 🛠️
 
